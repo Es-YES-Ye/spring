@@ -20,7 +20,7 @@ public class MemberService {
 			return mdao.selectAll();
 		}
 		
-		public List<MemberVO> selectById(String id) {
+		public MemberVO selectById(String id) {
 			return mdao.selectById(id);
 		}
 		

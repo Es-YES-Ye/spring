@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보 수정 페이지</title>
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/layout.css" >
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css" >
+
 <style type="text/css">
 table {
 	width: 500px;
@@ -21,7 +24,7 @@ table {
 			<table border="1">
 				<tr>
 					<th>아이디</th>
-					<td><input type="text" name="id" value="${member.id}"></td>
+					<td>${member.id}</td>
 				</tr>
 				<tr>
 					<th>이름</th>
@@ -38,10 +41,10 @@ table {
 				</tr>
 				<tr>
 					<th>연락처</th>
-					<td><input type="text" name="tel1" value="${member.tel1}"placeholder="000"
+					<td><input type="text" name="tel1" value="${member.tel1}"placeholder="${member.tel1}"
 						style="width: 10%">&nbsp;- 
 						<input type="text" name="tel2" value="${member.tel2}"
-						placeholder="0000" style="width: 15%">&nbsp;- 
+						placeholder="${member.tel2}" style="width: 15%">&nbsp;- 
 						<input
 						type="text" name="tel3" value="${member.tel3}" placeholder="0000" style="width: 15%"></td>
 				</tr>

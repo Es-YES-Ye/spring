@@ -21,15 +21,14 @@ public class MemberController {
 		model.addAttribute("memberList", mService.selectAll());
 		return "member/list";
 	}
-	
-	  @GetMapping("/member/detail") 
-	  public String memberselectById(String mid, Model model) { 
-		  model.addAttribute("memberList", mService.selectById(mid)); 
-		 return "member/detail"; 
-	  }
-	 
 
-	@PostMapping("/member/insertMemberPost")
+	@GetMapping("/member/detail")
+	public String memberselectById(String mid, Model model) {
+		model.addAttribute("member", mService.selectById(mid));
+		return "member/detail";
+	}
+
+	@PostMapping("/member/insert")
 	public String memberInsertPost(MemberVO member, Model model) {
 		mService.insertMember(member);
 		return "redirect:/member/list";
@@ -37,20 +36,26 @@ public class MemberController {
 
 	@GetMapping("/member/insert")
 	public String memberInsert(String mid, Model model) {
-		model.addAttribute("member", mService.selectById(mid));
+		// model.addAttribute("member", mService.selectById(mid));
 		return "member/addMemberForm";
 	}
-	
-	@PostMapping(value ="/member/update")
-	public String memberUpdate(MemberVO member, Model model) {
-		mService.insertMember(member);
+
+	@PostMapping(value = "/member/update")
+	public String memberUpdatePost(MemberVO member, String member2, Model model) {
+		model.addAttribute("member", mService.selectById(member2));
+		mService.updateMember(member);
 		return "redirect:/member/list";
+	} //deatail 로 가보고 싶으면 어떻게 하는지...?
+
+	@GetMapping(value = "/member/update")
+	public String memberUpdate(MemberVO member, String member2, Model model) {
+		model.addAttribute("member", mService.selectById(member2));
+		return "member/updateMemberForm";
 	}
 
-
 	@GetMapping("/member/delete")
-	public String memberDelete(String mid, Model model) {
-		model.addAttribute("memberList", mService.deleteMember(mid));
-		return "member/list";
+	public String memberDelete(String mid) {
+		mService.deleteMember(mid);
+		return "redirect:/member/list";
 	}
 }

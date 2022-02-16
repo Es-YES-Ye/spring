@@ -18,6 +18,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 목록</title>
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/layout.css" >
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css" >
+
 <style>
 hr, table {
 	width: 80%

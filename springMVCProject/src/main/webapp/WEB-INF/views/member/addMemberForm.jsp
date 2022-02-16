@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 등록 페이지</title>
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/layout.css" >
+<link rel = "stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css" >
+
 <style type="text/css">
 table {
 	width: 500px;
@@ -42,7 +45,7 @@ table {
 		<h2>회원 등록</h2>
 		<hr>
 		<br>
-		<form action="register.do" method="post" onsubmit="return addMem()">
+		<form action="insert" method="post" onsubmit="return addMem()">
 			<table border="1">
 				<tr>
 					<th>아이디</th>

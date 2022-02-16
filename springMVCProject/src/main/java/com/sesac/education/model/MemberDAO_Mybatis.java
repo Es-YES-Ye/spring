@@ -22,7 +22,7 @@ public class MemberDAO_Mybatis {
 		return session.selectList(namespace+"selectAll");
 	}
 	
-	public List<MemberVO> selectById(String id) {
+	public MemberVO selectById(String id) {
 		return session.selectOne(namespace+"selectById", id);
 	}
 	
